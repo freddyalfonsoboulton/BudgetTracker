@@ -1,0 +1,242 @@
+sheet.key <- "12VwFNbXjQ6VNTRHNreerlpXcAQFLKzfENMBFrFVtHFc"
+sheet <- gs_key(sheet.key)
+library(googlesheets)
+updated.data <- data.frame(gs_read_csv(sheet))
+sheet <- gs_key(sheet.key)
+updated.data <- data.frame(gs_read_csv(sheet))
+sheet <- gs_key(sheet.key)
+updated.data <- data.frame(gs_read_csv(sheet))
+sheet.key <- "12VwFNbXjQ6VNTRHNreerlpXcAQFLKzfENMBFrFVtHFc"
+library(data.table)
+library(dplyr)
+sheet <- gs_key(sheet.key)
+sheet <- gs_key(sheet.key)
+sheet.key <- "12VwFNbXjQ6VNTRHNreerlpXcAQFLKzfENMBFrFVtHFc"
+sheet <- gs_key(sheet.key)
+sheet.key <- "12VwFNbXjQ6VNTRHNreerlpXcAQFLKzfENMBFrFVtHFc"
+sheet <- gs_key(sheet.key)
+shiny::runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+sheet <- gs_key(sheet.key)
+updated.data <- data.frame(gs_read_csv(sheet))
+updated.data <- format_data(updated.data)
+updated.data$Category
+levels(updated.data$Category)
+plot.df <- updated.data[updated.data$Category %in% checkbox.input,]
+checkbox.input = c("Bills","Fun","Groceries","Clothes","Dining Out",
+"Transportation","Other")
+year(plot.df$Date)
+plot.df <- updated.data[updated.data$Category %in% checkbox.input,]
+year(plot.df$Date)
+plot.df %>% group_by(year(plot.df$Date),month(plot.df$Date)) %>% summarize(total = sum(Amount))
+cut(plot.df$Date, breaks = "month")
+as.Date(cut(plot.df$Date, breaks = "month"))
+plot.df$month <- as.Date(cut(plot.df$Date, breaks = "month"))
+plot.df %>% group_by(month) %>% summarize(total = sum(Amount))
+plot.df <- plot.df %>% group_by(month) %>% summarize(total = sum(Amount))
+plot.df <- plot.df %>% group_by(month) %>% summarize(total = sum(Amount), n = n())
+plot.df <- plot.df %>% group_by(month) %>% summarize(total = sum(Amount), n = n())
+plot.df$month <- as.Date(cut(plot.df$Date, breaks = "month"))
+plot.df <- updated.data[updated.data$Category %in% checkbox.input,]
+plot.df$month <- as.Date(cut(plot.df$Date, breaks = "month"))
+plot.df <- plot.df %>% group_by(month) %>% summarize(total = sum(Amount), n = n())
+plot.df
+ggplot(plot.df, aes(month,total)) + geom_point() + geom_line() +
+geom_text((aes = n))
+library(ggplot2)
+ggplot(plot.df, aes(month,total)) + geom_point() + geom_line() +
+geom_text((aes = n))
+ggplot(plot.df, aes(month,total, label = n)) + geom_point() + geom_line() +
+geom_text((aes = n))
+ggplot(plot.df, aes(x = month,y = total, label = n)) + geom_point() + geom_line() +
+geom_text((aes = n))
+ggplot(plot.df, aes(x = month,y = total, label = n)) + geom_point() + geom_line() +
+geom_text(aes(label = n))
+plot.df
+ggplot(plot.df, aes(x = month,y = total, label = n)) + geom_point() + geom_line()
+ggplot(plot.df, aes(x = month,y = total)) + geom_point() + geom_line()
+ggplot(plot.df, aes(x = month,y = total)) + geom_point() + geom_line()
+names(plot.df)
+ggplot(plot.df, aes(x = month,y = total)) + geom_point() + geom_line()
+ggplot(plot.df) + geom_point() + geom_line()
+library(ggplot2)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line()
+library(shinydashboard)
+library(googlesheets)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+library(shinydashboard)
+library(googlesheets)
+fields <- c("store", "category", "date","amount","notes")
+sheet.key <- "12VwFNbXjQ6VNTRHNreerlpXcAQFLKzfENMBFrFVtHFc"
+library(data.table)
+library(ggplot2)
+library(dplyr)
+source("helpers.R")
+sheet <- gs_key(sheet.key)
+sheet <- gs_key(sheet.key)
+sheet <- gs_key(sheet.key)
+sheet <- gs_key(sheet.key)
+updated.data <- data.frame(gs_read_csv(sheet))
+updated.data <- format_data(updated.data)
+updated.data
+checkbox.input = c("Bills","Fun","Groceries","Clothes","Dining Out",
+"Transportation","Other")
+plot.df <- updated.data[updated.data$Category %in% checkbox.input,]
+plot.df$month <- as.Date(cut(plot.df$Date, breaks = "month"))
+plot.df <- plot.df %>% group_by(month) %>% summarize(total = sum(Amount), n = n())
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line()
+aes
+library(ggplot2)
+library(dplyr)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line()
+plot.df <- updated.data[updated.data$Category %in% checkbox.input,]
+plot.df$month <- as.Date(cut(plot.df$Date, breaks = "month"))
+saveData(formData(),sheet.key)
+sheet <- gs_key(sheet.key)
+sheet.key <- "12VwFNbXjQ6VNTRHNreerlpXcAQFLKzfENMBFrFVtHFc"
+sheet <- gs_key(sheet.key)
+updated.data <- data.frame(gs_read_csv(sheet))
+updated.data <- format_data(updated.data)
+format_data <- function(df){
+df$Date <- as.Date(df$Date, format = "%m/%d/%Y")
+df$Category <- factor(df$Category,levels = c("Bills","Fun","Groceries","Clothes","Dining Out","Transportation","Other"))
+df$Store <- as.character(df$Store)
+df$Notes <- as.character(df$Notes)
+return(df)
+}
+updated.data <- format_data(updated.data)
+plot.df <- updated.data[updated.data$Category %in% checkbox.input,]
+aes
+checkbox.input = c("Bills","Fun","Groceries","Clothes","Dining Out",
+"Transportation","Other")
+plot.df <- updated.data[updated.data$Category %in% checkbox.input,]
+plot.df$month <- as.Date(cut(plot.df$Date, breaks = "month"))
+plot.df <- plot.df %>% group_by(month) %>% summarize(total = sum(Amount), n = n())
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line()
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n))
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), hjust = 2, vjust = 20)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), hjust = 0.5, vjust = 0.5)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), hjust = 1, vjust = 0.5)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), hjust = -5, vjust = 0.5)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), hjust = 0, vjust = 2)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), hjust = 0, vjust = -1.5)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), hjust = 0, vjust = -1.5) + ylim(0,max(plotdf$total)*1.2)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), hjust = 0, vjust = -1.5) + ylim(0,max(plot.df$total)*1.2)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = n), vjust = -1.5) + ylim(0,max(plot.df$total)*1.2)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = total), vjust = -1.5) + ylim(0,max(plot.df$total)*1.2)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = round(total)), vjust = -1.5) + ylim(0,max(plot.df$total)*1.2)
+ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = round(total)), vjust = -1.5) + ylim(0,max(plot.df$total)*1.2) +
+xlab("Month") + ylab("Total $ Spent") + ggtitle("Dollars Spent by Month")
+make.line.plot <- function(updated.data,checkbox.input = c("Bills","Fun","Groceries","Clothes","Dining Out",
+"Transportation","Other")){
+plot.df <- updated.data[updated.data$Category %in% checkbox.input,]
+plot.df$month <- as.Date(cut(plot.df$Date, breaks = "month"))
+plot.df <- plot.df %>% group_by(month) %>% summarize(total = sum(Amount), n = n())
+p <- ggplot(plot.df,aes(month,total)) + geom_point() + geom_line() +
+geom_text(aes(label = round(total)), vjust = -1.5) + ylim(0,max(plot.df$total)*1.2) +
+xlab("Month") + ylab("Total $ Spent") + ggtitle("Dollars Spent by Month")
+return(p)
+}
+shiny::runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+levels(updated.data$Category)
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+month(Sys.Date())
+cut(Sys.Date(),"month")
+as.Date(cut(Sys.Date(),"month"))
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+updated.data
+plot.df <- updated.data
+plot.df <- plot.df %>% group_by(Category) %>% summarise(total = sum(Amount))
+ggplot(plot.df, aes(Category,total)) + ggtitle(paste0("Amount Spend on Each Category from \n",
+beginning," to ", end)) +
+xlab("Spending Category") + ylab("Total $ Spent")
+make.bar.plot <- function(updated.data, date.range){
+beginning <- as.Date(date.rage[1])
+end <- as.Date(date.range[2])
+plot.df <- updated.data[updated.data$Date >= beginning & updated.data$Date <= end,]
+plot.df <- plot.df %>% group_by(Category) %>% summarise(total = sum(Amount))
+p <- ggplot(plot.df, aes(Category,total)) + ggtitle(paste0("Amount Spend on Each Category from \n",
+beginning," to ", end)) +
+xlab("Spending Category") + ylab("Total $ Spent")
+return(p)
+}
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+date.range
+plot.df
+plot.df
+date.range <- c("2016-12-01", "2016-12-07")
+beginning <- as.Date(date.range[1])
+end <- as.Date(date.range[2])
+plot.df <- updated.data[updated.data$Date >= beginning & updated.data$Date <= end,]
+plot.df <- plot.df %>% group_by(Category) %>% summarise(total = sum(Amount))
+p <- ggplot(plot.df, aes(Category,total)) + ggtitle(paste0("Amount Spend on Each Category from \n",
+beginning," to ", end)) +
+xlab("Spending Category") + ylab("Total $ Spent")
+print(p)
+p <- ggplot(plot.df, aes(Category,total)) + geom_bar() +
+ggtitle(paste0("Amount Spend on Each Category from \n",
+beginning," to ", end)) +
+xlab("Spending Category") + ylab("Total $ Spent")
+print(p)
+p <- ggplot(plot.df, aes(Category,total)) + geom_bar(stat = "identity") +
+ggtitle(paste0("Amount Spend on Each Category from \n",
+beginning," to ", end)) +
+xlab("Spending Category") + ylab("Total $ Spent")
+print(p)
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+include.bills
+plot.df
+plot.df
+tot
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+shiny::runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+runApp('C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application')
+setwd("C:/Users/bofr6001/Google Drive/Personal/BudgetTracker/Application")
+rsconnect::deployApp()
+rsconnect::deployApp()
+runApp()
+mvrnorm(n = N, mu = rep(0,15), Sigma = diag(1))
+library(MASS)
+mvrnorm(n = N, mu = rep(0,15), Sigma = diag(1))
+X <- mvrnorm(n = N, mu = rep(0,15), Sigma = diag(15))
+N <- 5000
+X <- mvrnorm(n = N, mu = rep(0,15), Sigma = diag(15))
+ymod <- c(rep(0,12),rep(1,3))
+ymod <- c(rep(0,12),rep(1,3))
+X %*% ymod
+princomp(X)
+princomp(X,cor = T)
+princomp(X,cor = T)
