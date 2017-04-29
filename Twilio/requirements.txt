@@ -1,0 +1,6 @@
+Flask==0.12.1
+twilio==6.0.0
+gspread==0.6.2
+oauth2client==4.0.0
+pandas==0.19.2
+numpy==1.12.1
